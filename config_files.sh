@@ -17,9 +17,9 @@ sleep 5
                 "tasks.max":"2",
                 "topics": "pageviews",
                 "ssl":"true",
-                "hostname":"uzkee0x1rb.eu-west-1.aws.clickhouse.cloud",
-                "database":"default",
-                "password":"egNKoxgICWr~8",
+                "hostname":"****",
+                "database":"****",
+                "password":"****",
                 "ssl.truststore.location": "/tmp/kafka.client.truststore.jks",
                 "port": "8443",
                 "value.converter.schemas.enable": "false",
@@ -30,12 +30,12 @@ sleep 5
                 "username":"default",
                 "schemas.enable":"false",
                 "table":"pageviews",
-                "schema.registry.url": "https://psrc-8vyvr.eu-central-1.aws.confluent.cloud",
+                "schema.registry.url": "****",
                 "key.converter": "io.confluent.connect.avro.AvroConverter",
-                "key.converter.schema.registry.url": "https://psrc-8vyvr.eu-central-1.aws.confluent.cloud",
+                "key.converter.schema.registry.url": "*****",
                 "value.converter": "io.confluent.connect.avro.AvroConverter",
                 "schemas.enable": "false",
-                "value.converter.schema.registry.url": "https://psrc-8vyvr.eu-central-1.aws.confluent.cloud",
+                "value.converter.schema.registry.url": "******",
                 "errors.tolerance": "all"
             }
     }'
