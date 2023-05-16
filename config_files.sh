@@ -7,6 +7,8 @@ sleep 30s
 echo "Creating the clickhouse connector .... "
 
 
+### KEEP JSON CONVERTER EVEN IF IT IS AVRO :)
+
 sleep 5
 
     curl -i -X POST http://localhost:8083/connectors -H "Content-Type:application/json" -H "Accept: application/json" \
@@ -14,28 +16,23 @@ sleep 5
             "name": "clickhouse-sink",
             "config": {
                 "connector.class":"com.clickhouse.kafka.connect.ClickHouseSinkConnector",
-                "tasks.max":"2",
+                "tasks.max":"1",
                 "topics": "pageviews",
                 "ssl":"true",
-                "hostname":"****",
-                "database":"****",
-                "password":"****",
+                "hostname":"uzkee0x1rb.eu-west-1.aws.clickhouse.cloud",
+                "database":"default",
+                "security.protocol": "SSL",
+                "password":"*******",
                 "ssl.truststore.location": "/tmp/kafka.client.truststore.jks",
                 "port": "8443",
                 "value.converter.schemas.enable": "false",
-                "value.converter": "io.confluent.connect.avro.AvroConverter",
-                "key.converter":"io.confluent.connect.avro.AvroConverter",
+                "value.converter": "org.apache.kafka.connect.json.JsonConverter",
                 "exactlyOnce":"false",
                 "auto.create.tables": true,
                 "username":"default",
                 "schemas.enable":"false",
                 "table":"pageviews",
-                "schema.registry.url": "****",
-                "key.converter": "io.confluent.connect.avro.AvroConverter",
-                "key.converter.schema.registry.url": "*****",
-                "value.converter": "io.confluent.connect.avro.AvroConverter",
                 "schemas.enable": "false",
-                "value.converter.schema.registry.url": "******",
                 "errors.tolerance": "all"
             }
     }'
